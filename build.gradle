@@ -24,7 +24,6 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'at.htlgrieskirchen.nicedragbro'
     mainClass = 'at.htlgrieskirchen.nicedragbro.HelloApplication'
 }
 
