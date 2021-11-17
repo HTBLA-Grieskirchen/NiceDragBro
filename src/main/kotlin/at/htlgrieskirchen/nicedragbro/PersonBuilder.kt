@@ -1,6 +1,7 @@
 package at.htlgrieskirchen.nicedragbro
 
 import com.google.gson.annotations.SerializedName
+import javafx.scene.image.PixelFormat
 import javafx.scene.image.WritableImage
 
 data class PersonBuilder(
@@ -52,13 +53,34 @@ data class PersonBuilder(
     )
 
     fun build(): Person {
-        val image = WritableImage(width, height)
-        val pixelWriter = image.pixelWriter
 
-        for (x in 0 until width) {
-            for (y in 0 until height) {
-                pixelWriter.setArgb(x, y, pixels[y + x * width])
+        val image = if (width * height * 4 == pixels.size) {
+            val image = WritableImage(width, height)
+            val pixelWriter = image.pixelWriter
+
+            pixelWriter.setPixels(
+                0,
+                0,
+                width,
+                height,
+                PixelFormat.getIntArgbInstance(),
+                pixels.toIntArray(),
+                0,
+                width * 4
+            )
+
+            image
+        } else {
+            val image = WritableImage(width, height)
+            val pixelWriter = image.pixelWriter
+
+            for (x in 0 until width) {
+                for (y in 0 until height) {
+                    pixelWriter.setArgb(x, y, pixels[y + x * width])
+                }
             }
+
+            image
         }
 
         return Person(id, image, firstName, lastName, size, weight, bmi, ffmi)
