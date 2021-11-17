@@ -9,7 +9,7 @@ import javafx.stage.Stage
 
 @JvmField
 val gson = GsonBuilder()
-    .registerTypeAdapter(Image::class.java, PersonAdapter())
+    .registerTypeAdapter(Person::class.java, PersonAdapter())
     .create()
 
 class HelloApplication : Application() {
