@@ -1,9 +1,16 @@
 package at.htlgrieskirchen.nicedragbro
 
+import com.google.gson.GsonBuilder
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
+import javafx.scene.image.Image
 import javafx.stage.Stage
+
+@JvmField
+val gson = GsonBuilder()
+    .registerTypeAdapter(Image::class.java, PersonAdapter())
+    .create()
 
 class HelloApplication : Application() {
     override fun start(stage: Stage) {
