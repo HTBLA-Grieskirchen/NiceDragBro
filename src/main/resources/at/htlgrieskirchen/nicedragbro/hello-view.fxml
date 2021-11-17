@@ -4,27 +4,29 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="566.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlgrieskirchen.nicedragbro.HelloController">
    <children>
       <Label layoutX="400.0" layoutY="40.0" text="Vorname:" />
    
           <Label fx:id="welcomeText" layoutX="400.0" layoutY="20.0" prefHeight="17.0" prefWidth="66.0" text="id:" />
-      <Label id="lbl_id" fx:id="lbl_id" layoutX="500.0" layoutY="20.0" text="Label" />
+      <Label id="lbl_id" fx:id="lbl_id" layoutX="500.0" layoutY="20.0" />
       <Label layoutX="400.0" layoutY="60.0" text="Nachname:" />
       <Label layoutX="400.0" layoutY="80.0" text="Größe [cm]:" />
       <Label layoutX="400.0" layoutY="100.0" text="Gewicht [kg]:" />
       <Label layoutX="400.0" layoutY="120.0" text="BMI:" />
       <Label layoutX="400.0" layoutY="140.0" text="FFMI:" />
-      <Label id="lbl_first_name" fx:id="lbl_first_name" layoutX="500.0" layoutY="40.0" text="Label" />
-      <Label id="lbl_last_name" fx:id="lbl_last_name" layoutX="500.0" layoutY="60.0" text="Label" />
-      <Label id="lbl_height" fx:id="lbl_height" layoutX="500.0" layoutY="80.0" text="Label" />
-      <Label id="lbl_weight" fx:id="lbl_weight" layoutX="500.0" layoutY="100.0" text="Label" />
-      <Label id="lbl_BMI" fx:id="lbl_bmi" layoutX="500.0" layoutY="120.0" text="Label" />
-      <Label id="lbl_FFMI" fx:id="lbl_ffmi" layoutX="500.0" layoutY="140.0" text="Label" />
-      <BarChart fx:id="barchart_bmi_ffmi" layoutX="350.0" layoutY="191.0" prefHeight="150.0" prefWidth="406.0">
+      <Label id="lbl_first_name" fx:id="lbl_first_name" layoutX="500.0" layoutY="40.0" />
+      <Label id="lbl_last_name" fx:id="lbl_last_name" layoutX="500.0" layoutY="60.0" />
+      <Label id="lbl_height" fx:id="lbl_height" layoutX="500.0" layoutY="80.0" />
+      <Label id="lbl_weight" fx:id="lbl_weight" layoutX="500.0" layoutY="100.0" />
+      <Label id="lbl_BMI" fx:id="lbl_bmi" layoutX="500.0" layoutY="120.0" />
+      <Label id="lbl_FFMI" fx:id="lbl_ffmi" layoutX="500.0" layoutY="140.0" />
+      <BarChart fx:id="barchart_bmi_ffmi" layoutX="356.0" layoutY="192.0" prefHeight="150.0" prefWidth="410.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -32,18 +34,18 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Label layoutX="497.0" layoutY="163.0" text="BMI u. FFMI" />
+      <Label layoutX="529.0" layoutY="163.0" text="BMI u. FFMI" />
       <BarChart fx:id="barchart_gewicht" layoutX="350.0" layoutY="350.0" prefHeight="120.0" prefWidth="200.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="[kg]" prefHeight="18.0" prefWidth="143.0" side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <BarChart fx:id="barchart_height" layoutX="560.0" layoutY="350.0" prefHeight="75.0" prefWidth="105.0">
+      <BarChart fx:id="barchart_height" layoutX="560.0" layoutY="350.0" prefHeight="120.0" prefWidth="200.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="[cm]" prefHeight="18.0" prefWidth="143.0" side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
@@ -51,5 +53,11 @@
       </BarChart>
       <Label layoutX="452.0" layoutY="333.0" text="Gewicht" />
       <Label layoutX="654.0" layoutY="333.0" text="Größe" />
+      <ScrollPane layoutX="14.0" layoutY="283.0">
+         <content>
+            <ListView fx:id="listView_personen" prefHeight="275.0" prefWidth="339.0" />
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="imgview_person" fitHeight="205.0" fitWidth="268.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
